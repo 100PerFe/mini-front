@@ -1,0 +1,25 @@
+<import src="/utils/personaltype/template1"></import>
+<view class="admin">
+    <template is="nor_personal" data="{{name,status,club,rank}}"></template>
+    <view class="admin_func">
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover">
+                <view>用户管理</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover">
+                <view>更新活动Tag</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover">
+                <view>更新邀请码</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+    </view>
+    
+</view>

@@ -1,0 +1,37 @@
+<template name="nor_personal">
+<view class="member_list">
+    <view class="list_header">
+        <view id="mem_img">
+            <image />
+        </view>
+        <view id="mem_title">
+            <text >
+                {{name}}
+                {{status}}
+                {{club}} 
+            </text>
+        </view>
+    </view>
+    <view class="list_body">
+        <button class='btn2' hover-class="btnhover">
+            <view>修改信息</view>
+            <image src="../../image/A-icon/左箭头.png"/>
+        </button>
+   </view>
+   <view class="accounter" wx:if="{{rank==0}}">
+       <view class="list_body">
+            <button class='btn2' hover-class="btnhover">
+                <view>社团入账</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover">
+                <view>社团出账</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+   </view>
+    
+</view>
+</template>

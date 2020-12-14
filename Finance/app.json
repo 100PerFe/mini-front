@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/finance/index",
+    "pages/personal/index",
+    "pages/administrator/index",
+    "utils/personaltype/template1"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FADB14",
+    "navigationBarTitleText": "财务管理",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ffffff",
+    "selectedColor": "#FADB14",
+    "borderStyle": "white",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/finance/index",
+        "iconPath": "/image/A-icon/首页.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/personal/index",
+        "iconPath": "/image/A-icon/我的.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "v-tabbar": "dist/tabbar/index",
+    "v-tabbar-item": "dist/tabbar-item/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

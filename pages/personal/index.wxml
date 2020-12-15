@@ -1,0 +1,4 @@
+<import src="/utils/personaltype/template1"></import>
+<template is="nor_personal" data="{{name,status,club,rank}}"></template>
+
+

@@ -1,0 +1,834 @@
+<!--pages/index/index.wxml-->
+<van-row>
+  <van-col span="12">
+    <view class="org-switch-box" bindtap="pickerOpen">
+      <view class="org-name">{{selectedOrg}}</view>
+      <van-icon name="arrow-down" size="75rpx" color="#fadb14"/>
+    </view>
+  </van-col>
+  <van-col span="12">
+    <view class="org-options-box">
+      <view class="org-options-detail" id="orgOptions">
+        <van-transition show="{{ orgOptionShow }}" name="fade-right">
+          <view class="up-triangle-box">
+              <view class="kailong"></view>
+          </view>
+          <view class="org-options-detail-item underline-white" bindtap="joinOrgOpen">
+            <van-row>
+              <van-col span="8">
+                <van-icon name="add-o" />
+              </van-col>
+              <van-col span="16">
+                加入社团
+              </van-col>
+            </van-row>
+          </view>
+          <view class="org-options-detail-item" bindtap="toApplyOrg">
+            <van-row>
+              <van-col span="8">
+                <van-icon name="friends" />
+              </van-col>
+              <van-col span="16">
+                申请社团
+              </van-col>
+            </van-row>
+          </view>
+        </van-transition>
+      </view>
+      <view>
+        <van-icon name="add" size="75rpx" bind:click="orgOptionsSwitch" color="#3c374a"/>
+      </view>
+    </view>
+  </van-col>
+</van-row>
+
+<view class="finance-summary">
+  <van-row>
+    <van-col span="8" custom-class="summary-flex-box">
+      <view class="org-avatar">
+        <van-image width="100%" height="100%" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+      </view>
+    </van-col>
+    <van-col span="16">
+      <view class="finance-summary-detail">
+        <view>
+          本月收入
+          <text class="finance-summary-number">999</text>
+        </view>
+        <view>
+          本月支出
+          <text class="finance-summary-number">999</text>
+        </view>
+      </view>
+    </van-col>
+  </van-row>
+</view>
+
+<view class="finance-header">
+  资金明细
+</view>
+
+<van-tabs active="a" color="#fadb14" animated="{{true}}" sticky="{{true}}">
+  <van-tab title="收入" name="a">
+    <view class="list">
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="income-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="income-item-number">+100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="支出" name="b">
+    <view class="list">
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+      <view class="expend-item">
+        <van-row>
+          <van-col span="8" custom-class="detail-flex-box">
+            <view class="expand-item-number">-100</view>
+          </van-col>
+          <van-col span="12">
+            <view class="finance-detail">
+              <view>日期：2020-12-7</view>
+              <view>标签：外联</view>
+              <view>经手人：Stephen</view>
+            </view>
+          </van-col>
+          <van-col span="3">
+            <view class="detail-icon-box" bindtap="toBillDetail">
+              <van-icon name="more" size="50rpx"/>
+            </view>
+          </van-col>
+          <van-col span="1">
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+
+
+<van-dialog
+  use-slot
+  title="通过邀请码加入社团"
+  width="500rpx"
+  show="{{ joinOrgShow }}"
+  show-cancel-button
+  confirmButtonText="加入"
+  confirm-button-open-type="getUserInfo"
+  confirm-button-color="#fadb14"
+  bind:close="joinOrgClose"
+>
+<view class="join-org-box">
+  <input type="text" placeholder="请输入邀请码" placeholder-style="text-align:center" class="join-org-input" maxlength="8"/>
+</view>
+</van-dialog>
+
+<van-action-sheet show="{{ pickerShow }}" actions="{{ pickerActions }}" bind:close="pickerClose" bind:select="pickerSelect" cancel-text="取消" description="切换社团" bind:cancel="pickerClose"/>

@@ -1,0 +1,62 @@
+<view class="header">
+  <van-image
+  round
+  fit="cover"
+  width="8rem"
+  height="8rem"
+  src="https://img.yzcdn.cn/vant/cat.jpeg"
+  />
+</view>
+
+<van-cell-group title="基本信息">
+  <van-field
+    value="{{ userName }}"
+    clearable
+    label="用户名"
+    placeholder="请输入新用户名"
+    bind:click-icon="onClickIcon"
+    input-align="right"
+  />
+
+  <van-field
+    value="{{ userSignature }}"
+    type="textarea"
+    label="个性签名"
+    placeholder="请输入新个性签名"
+    clearable
+    autosize
+    maxlength="50"
+    show-confirm-bar
+    show-word-limit
+    border="{{ false }}"
+    input-align="right"
+  />
+</van-cell-group>
+<van-cell-group title="联系方式">
+  <van-field
+    value="{{ userPhone }}"
+    clearable
+    label="电话"
+    placeholder="请输入新电话"
+    bind:click-icon="onClickIcon"
+    input-align="right"
+  />
+  <van-field
+    value="{{ userPhone }}"
+    clearable
+    label="邮箱"
+    placeholder="请输入新邮箱"
+    bind:click-icon="onClickIcon"
+    input-align="right"
+  />
+  
+</van-cell-group>
+<view class="footer">
+  <van-button color="linear-gradient(to right, #EDE574, #E1F5C4)" custom-style="color: #3f4470;width:85vw">
+    保存
+  </van-button>
+</view>
+
+
+
+

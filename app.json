@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/inviteCode/inviteCode",
+    "pages/editInfo/editInfo",
+    "pages/index/index",
+    "pages/billDetail/billDetail",
+    "pages/applyOrg/applyOrg",
     "pages/finance/index",
     "pages/personal/index",
     "pages/administrator/index",
@@ -18,7 +23,7 @@
     "backgroundColor": "#000000",
     "list": [
       {
-        "pagePath": "pages/finance/index",
+        "pagePath": "pages/index/index",
         "iconPath": "/image/A-icon/首页.png",
         "text": "首页"
       },
@@ -30,8 +35,24 @@
     ]
   },
   "usingComponents": {
-    "v-tabbar": "dist/tabbar/index",
-    "v-tabbar-item": "dist/tabbar-item/index"
+    "v-tabbar": "/dist/tabbar/index",
+    "v-tabbar-item": "/dist/tabbar-item/index",
+    "van-row": "/dist/row/index",
+    "van-col": "/dist/col/index",
+    "van-icon": "/dist/icon/index",
+    "van-image": "/dist/image/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-action-sheet": "/dist/action-sheet/index",
+    "van-overlay": "/dist/overlay/index",
+    "van-button": "/dist/button/index",
+    "van-transition": "/dist/transition/index",
+    "van-dialog": "/dist/dialog/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-field": "/dist/field/index",
+    "van-nav-bar": "/dist/nav-bar/index"
+    
   },
   "sitemapLocation": "sitemap.json"
 }

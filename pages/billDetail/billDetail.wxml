@@ -1,0 +1,21 @@
+
+<van-cell-group title="基本信息">
+  <van-cell title="流动金额" value="{{bill.billAmount}}" />
+  <van-cell title="日期" value="{{bill.billDate}}" />
+  <van-cell title="标签" value="{{bill.billTag}}" border="{{ true }}" />
+  <van-cell title="经手人" value="{{bill.billUser}}" border="{{ true }}" />
+</van-cell-group>
+
+<van-cell-group title="资金用途">
+  <van-cell title="流动原因" value="{{bill.billReason}}" />
+  <van-cell title="流动证明">
+    <van-image slot="" fix="cover" width="150rpx" height="150rpx" src="{{bill.billProof}}" bindtap="imgOpen"/>
+  </van-cell>
+</van-cell-group>
+
+<van-overlay show="{{ imgShow }}" bind:click="imgClose">
+  <view class="overlay">
+    <image src="{{bill.billProof}}" mode="widthFix"></image>
+  </view>
+</van-overlay>
+

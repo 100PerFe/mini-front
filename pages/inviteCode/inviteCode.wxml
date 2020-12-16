@@ -1,0 +1,4 @@
+<van-field value="{{ inviteCode }}" label="当前邀请码" type="text" readonly border="{{ true }}" use-button-slot>
+  <van-button slot="button" size="small" color="linear-gradient(to right, #fadb14, #fa6914)" bindtap="comfirmNewCode">生成新的邀请码</van-button>
+</van-field>
+<van-dialog id="van-dialog" confirm-button-color="#fadb14"/>

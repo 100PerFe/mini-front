@@ -1,0 +1,22 @@
+ <view class="user_list" > 
+  <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
+    <view slot="left" class="swipe-cell-slot">
+      <van-button type="primary" >选择</van-button>
+    </view>
+    <van-cell-group class="user_list_body">
+      <van-cell>
+          <van-col span="5">
+            <van-image width="70rpx" height="70rpx" fit="cover" src="../../image/grid1.png"  />
+          </van-col>
+          <van-col span="9" offset="5" class="user_col">
+            <van-row>{{name}}</van-row>
+            <van-row>{{status}}</van-row>
+          </van-col>
+      </van-cell>
+    </van-cell-group>
+    <view slot="right" class="swipe-cell-slot">
+      <van-button type="danger">删除</van-button>
+    </view>
+  </van-swipe-cell>
+</view>
+

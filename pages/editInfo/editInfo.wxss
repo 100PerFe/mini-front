@@ -1,0 +1,20 @@
+/* pages/applyOrg/applyOrg.wxss */
+
+.text-center {
+  text-align: center !important;
+  font-size: xx-large;
+}
+
+.header {
+  text-align: center ;
+  font-size: x-large ;
+  color: #3f4470 ;
+  line-height: 70rpx ;
+  padding-top: 30rpx ;
+  padding-bottom: 30rpx ;
+}
+
+.footer {
+  margin-top: 30rpx;
+  text-align: center;
+}

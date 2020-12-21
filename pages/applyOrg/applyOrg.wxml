@@ -1,0 +1,37 @@
+<view class="header">
+  创建社团
+</view>
+<van-cell-group title="基本信息">
+  <van-field
+    value="{{ clubName }}"
+    required
+    clearable
+    label="社团名称"
+    placeholder="请输入社团名称"
+    bind:click-icon="onClickIcon"
+    title-align="right"
+  />
+
+  <van-field
+    value="{{ clubDesc }}"
+    type="textarea"
+    label="社团描述"
+    placeholder="请输入社团描述"
+    clearable
+    required
+    autosize
+    maxlength="120"
+    show-confirm-bar
+    show-word-limit
+    border="{{ false }}"
+  />
+</van-cell-group>
+<view class="footer">
+  <van-button color="linear-gradient(to right, #EDE574, #E1F5C4)" custom-style="color: #3f4470;width:85vw">
+    创建社团
+  </van-button>
+</view>
+
+
+
+

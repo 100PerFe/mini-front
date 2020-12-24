@@ -1,5 +1,5 @@
 <view class="tag_add">
-    <form class="tag_body">
+    <form class="tag_body" bindsubmit="update_Tag">
         <van-cell-group>
             <label >新增活动Tag:</label>
             <van-field

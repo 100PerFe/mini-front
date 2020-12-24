@@ -1,19 +1,19 @@
 <view class="finace-form-common" >
     <image src='../../image/grid1.png' ></image>
-    <form bindsubmit="finance-submit">
+    <form bindsubmit="finance_submit">
         <view class="finance-formc">
             <label>活动Tag：</label>
-            <input type="text" focus="{{true}}" data-type="1" placeholder="活动Tag"/>
+            <input type="text" focus="{{true}}" name="active_tag" data-type="1" bindinput="active" placeholder="活动Tag"/>
         </view>
         <view class="finance-formc">
             <label>{{action}}金额：</label>
-            <input type="text" focus="{{true}}" data-type="2" placeholder="活动金额"/>
+            <input type="text" focus="{{true}}" name="active_cost" data-type="2" bindinput="active" placeholder="活动金额"/>
         </view>
         <view class="finance-formc">
             <label>{{action}}原因：</label>
-            <textarea focus="{{true}}" data-type="3"></textarea>
+            <textarea focus="{{true}}" name="reason" data-type="3" bindinput="active"></textarea>
         </view>
-        <button class='btn1' hover-class="btnhover">
+        <button class='btn1' hover-class="btnhover" form-type="submit">
             <view>确定</view>
         </button>
     </form>

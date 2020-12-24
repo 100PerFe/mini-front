@@ -1,4 +1,5 @@
-// pages/addtag/index.js
+const app = getApp()
+
 Page({
 
   /**
@@ -9,8 +10,33 @@ Page({
   },
 
   onChange(event) {
-    // event.detail 为当前输入的值
     console.log(event.detail);
+    let value = event.detail
+    this.setData({
+      value:value
+    })
+  },
+
+  update_Tag:function(){
+    let clubId = app.globalData.clubId;
+    let inputValue = this.data.value;
+    var s_Url = "creatTag";
+    wx.request({
+      url:app.globalData.url + s_Url,
+      data:{
+        clubId:clubId,
+        tagName:inputValue,
+        tagType:0
+      },
+      header:{ "Content-Type": "application/x-www-form-urlencoded"},
+      method:"POST",
+      success:function(res){
+        console.log(res.data)
+      },
+      fail:function(res){
+        console.log(res.data)
+      }
+    })
   },
 
   /**

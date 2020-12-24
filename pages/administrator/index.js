@@ -1,4 +1,6 @@
 // pages/administrator/index.js
+let app = getApp()
+
 Page({
 
   /**
@@ -9,6 +11,32 @@ Page({
     status:"社团管理员",
     club:"日语俱乐部",
     rank:0
+  },
+
+  toaddtag:function(){
+    wx.navigateTo({
+      url: "../addtag/index"
+    })
+  },
+
+  tofinance:function(){
+    app.toFinance()
+  },
+
+  tochangeu:function(){
+    app.toChangeU()
+  },
+
+  tousermanagement:function(){
+    wx.navigateTo({
+      url: "../usermanagement/index"
+    })
+  },
+
+  toinvitecode:function(){
+    wx.navigateTo({
+      url: "../inviteCode/inviteCode"
+    })
   },
 
   /**

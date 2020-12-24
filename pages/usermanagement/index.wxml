@@ -1,8 +1,5 @@
- <view class="user_list" > 
+<view class="user_list" > 
   <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
-    <view slot="left" class="swipe-cell-slot">
-      <van-button type="primary" >选择</van-button>
-    </view>
     <van-cell-group class="user_list_body">
       <van-cell>
           <van-col span="5">
@@ -15,8 +12,13 @@
       </van-cell>
     </van-cell-group>
     <view slot="right" class="swipe-cell-slot">
-      <van-button type="danger">删除</van-button>
+      <van-button type="primary" bind:click="showPopup">修改</van-button>
     </view>
   </van-swipe-cell>
+  <van-popup show="{{ show }}" bind:close="onClose">
+    <view wx:for="{{columns}}" wx:for-index="idx" >
+      <van-cell is-link bind:click="chooseToChange" data-k="{{idx}}" >{{item}}</van-cell>
+    </view>
+  </van-popup>
 </view>
 

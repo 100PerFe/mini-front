@@ -6,16 +6,29 @@ Page({
    */
   data: {
     name:"林齐之",
-    status:"administrator"
+    status:"administrator",
+    show:"",
+    columns:["管理员","记账员","普通成员"]
+  },
+  
+  showPopup:function() {
+    this.setData({ show: true });
   },
 
-
+  onClose:function() {
+    this.setData({ show: false });
+  },
   
+  chooseToChange:function(e){
+    let changedRank = e.currentTarget.dataset.k;
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

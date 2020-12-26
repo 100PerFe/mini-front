@@ -1,4 +1,28 @@
 <import src="/utils/personaltype/template1"></import>
-<template is="nor_personal" data="{{name,status,club,rank}}"></template>
+<view class="admin">
+    <template is="nor_personal" data="{{name,status,club,rank}}"></template>
+    <view class="admin_func" wx:if="{{rank==0}}">
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover" bindtap="tousermanagement">
+                <view>用户管理</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover" bindtap="toaddtag">
+                <view>更新活动Tag</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+        <view class="list_body">
+            <button class='btn2' hover-class="btnhover" bindtap="toinvitecode">
+                <view>更新邀请码</view>
+                <image src="../../image/A-icon/左箭头.png"/>
+            </button>
+        </view>
+    </view>
+    
+</view>
+
 
 

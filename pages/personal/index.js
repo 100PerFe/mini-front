@@ -10,7 +10,7 @@ Page({
     status:"普通成员",
     club:"日语俱乐部",
     counterType:"",
-    rank:1
+    rank:0
   },
  
   tofinance:function(e){
@@ -26,7 +26,31 @@ Page({
     app.toChangeU()
   },
 
-  
+  toaddtag:function(){
+    wx.navigateTo({
+      url: "../addtag/index"
+    })
+  },
+
+  tofinance:function(){
+    app.toFinance()
+  },
+
+  tochangeu:function(){
+    app.toChangeU()
+  },
+
+  tousermanagement:function(){
+    wx.navigateTo({
+      url: "../usermanagement/index"
+    })
+  },
+
+  toinvitecode:function(){
+    wx.navigateTo({
+      url: "../inviteCode/inviteCode"
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -74,6 +98,7 @@ Page({
         club:club,
         rank:rank      
       })
+      // console.log(this.data.rank)
 
     }
     

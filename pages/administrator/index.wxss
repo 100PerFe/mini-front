@@ -1,5 +1,0 @@
-@import "/utils/personaltype/template1.wxss";
-
-.admin_func{
-    padding: 0 48rpx;
-}

@@ -13,6 +13,6 @@
             确定
         </van-button>
     </form>
-    
+    <van-toast id="van-toast" bindtap="btnSub"/>
     
 </view>

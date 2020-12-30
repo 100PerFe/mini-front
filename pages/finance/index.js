@@ -1,4 +1,6 @@
-const app = getApp()
+const app = getApp();
+import Toast from "../../dist/toast/toast";
+
 
 Page({
 
@@ -11,8 +13,19 @@ Page({
     active_cost:"",
     reason:"",
     subCounterType:""
+
   },
 
+  /*
+  录入成功提示
+  */
+  btnSub:function() {
+  	Toast.success("录入成功");
+  },
+
+  /*
+  接受录入内容
+  */
   active:function(e){
     let inputType = e.currentTarget.dataset.type;
     // console.log(inputType)
@@ -33,9 +46,11 @@ Page({
       reason:reason
     })
     
-    // console.log(this.data.active_tag,this.data.active_cost)
   },
 
+  /*
+  出账/入账
+  */
   finance_submit:function(){
     let userId = app.globalData.userId;
     let clubId = app.globalData.clubId;
@@ -46,19 +61,31 @@ Page({
         data:{
           clubId:clubId,
           userId:userId,
-          pagTag:this.data.active_tag,
-          pagAmount:this.data.active_cost,
+          payTag:this.data.active_tag,
+          payAmount:this.data.active_cost,
           payReason:this.data.reason
         },
         header:{ "Content-Type": "application/x-www-form-urlencoded"},
         method:"POST",
         success:function(res){
           console.log(res.data)
+          var resdata1 = res.data;
+          if(app.searchDataCallback){
+            app.searchDataCallback(resdata1)
+          }
         },
         fail:function(res){
           console.log(res)
         }
       })
+      app.searchDataCallback = res => {
+        let rres1 = res.data;
+        console.log(rres1)
+        if (rres1 == "success") {
+          this.btnSub();
+        }
+        
+      }
     }
     else if(counterType == "createIncome"){
       wx.request({
@@ -73,12 +100,25 @@ Page({
         header:{ "Content-Type": "application/x-www-form-urlencoded"},
         method:"POST",
         success:function(res){
-          console.log(res.data)
+          // console.log(res.data)
+          var resdata2 = res.data;
+          if(app.searchDataCallback){
+            app.searchDataCallback(resdata2)
+          }
         },
         fail:function(res){
           console.log(res)
         }
       })
+      app.searchDataCallback = res => {
+          let rres2 = res.data;
+          console.log(rres2)
+          if (rres2 == "success") {
+            this.btnSub();
+          }
+          
+      }
+      
     }
     
   },
@@ -107,53 +147,4 @@ Page({
     },
 
 
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

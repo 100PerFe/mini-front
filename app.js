@@ -17,8 +17,8 @@ App({
   },
 
   globalData:{
-    userId:"",
-    clubId:"",
+    userId:2,
+    clubId:9,
     url:"http://8.129.215.86:8084/"
   }
 

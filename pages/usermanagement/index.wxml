@@ -1,13 +1,13 @@
 <view class="user_list" > 
-  <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}">
+  <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" wx:for="{{clubDetails}}" wx:for-index="idx" data-h="{{item.userId}}" bind:touchend="catchUserId">
     <van-cell-group class="user_list_body">
       <van-cell>
           <van-col span="5">
             <van-image width="70rpx" height="70rpx" fit="cover" src="../../image/grid1.png"  />
           </van-col>
           <van-col span="9" offset="5" class="user_col">
-            <van-row>{{name}}</van-row>
-            <van-row>{{status}}</van-row>
+            <van-row>{{item.userName}}</van-row>
+            <van-row>{{item.userRole}}</van-row>
           </van-col>
       </van-cell>
     </van-cell-group>

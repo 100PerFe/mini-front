@@ -16,10 +16,10 @@ Page({
   tofinance:function(e){
     app.toFinance()
     let i = e.currentTarget.dataset.i;
-    // console.log(i)
     this.setData({
       counterType:i
     })
+    
   },
 
   tochangeu:function(){
@@ -30,10 +30,6 @@ Page({
     wx.navigateTo({
       url: "../addtag/index"
     })
-  },
-
-  tofinance:function(){
-    app.toFinance()
   },
 
   tochangeu:function(){

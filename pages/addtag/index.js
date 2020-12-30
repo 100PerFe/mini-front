@@ -1,4 +1,5 @@
 const app = getApp()
+import Toast from "../../dist/toast/toast";
 
 Page({
 
@@ -9,6 +10,9 @@ Page({
     value:""
   },
 
+  /*
+  获取输入值
+  */
   onChange(event) {
     console.log(event.detail);
     let value = event.detail
@@ -17,6 +21,16 @@ Page({
     })
   },
 
+  /*
+  录入成功提示
+  */
+  btnSub:function() {
+    Toast.success("录入成功");
+  },
+
+  /*
+  更新活动tag
+  */
   update_Tag:function(){
     let clubId = app.globalData.clubId;
     let inputValue = this.data.value;
@@ -32,11 +46,23 @@ Page({
       method:"POST",
       success:function(res){
         console.log(res.data)
+        var resdata = res.data;
+        if(app.searchDataCallback){
+          app.searchDataCallback(resdata)
+        }
       },
       fail:function(res){
         console.log(res.data)
       }
     })
+    app.searchDataCallback = res => {
+      let rres = res.code;
+      console.log(rres)
+      if (rres == 200) {
+        this.btnSub();
+      }
+      
+    }
   },
 
   /**
@@ -46,52 +72,4 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -17,4 +17,5 @@
             <view>确定</view>
         </button>
     </form>
+    <van-toast id="van-toast" bindtap="btnSub"/>
 </view>

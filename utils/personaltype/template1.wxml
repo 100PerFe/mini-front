@@ -5,10 +5,10 @@
             <image />
         </view>
         <view id="mem_title">
-            <text >
+            <text>
                 {{name}}
                 {{status}}
-                {{club}} 
+                {{club}}
             </text>
         </view>
     </view>

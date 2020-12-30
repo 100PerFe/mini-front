@@ -5,7 +5,6 @@
     "pages/editInfo/editInfo",
     "pages/billDetail/billDetail",
     "pages/applyOrg/applyOrg",
-    "pages/administrator/index",
     "pages/personal/index",
     "pages/addtag/index",
     "pages/usermanagement/index",
@@ -37,14 +36,14 @@
     ]
   },
   "usingComponents":{
-    "van-swipe-cell": "dist/swipe-cell/index",
-    "van-cell": "dist/cell/index",
-    "van-cell-group": "dist/cell-group/index",
-    "van-row": "dist/row/index",
-    "van-col": "dist/col/index",
-    "van-image": "dist/image/index",
-    "van-button": "dist/button/index",
-    "van-field": "dist/field/index",
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-row": "/dist/row/index",
+    "van-col": "/dist/col/index",
+    "van-image": "/dist/image/index",
+    "van-button": "/dist/button/index",
+    "van-field": "/dist/field/index",
     "van-icon": "/dist/icon/index",
     "van-tab": "/dist/tab/index",
     "van-tabs": "/dist/tabs/index",
@@ -53,7 +52,9 @@
     "van-transition": "/dist/transition/index",
     "van-dialog": "/dist/dialog/index",
     "van-nav-bar": "/dist/nav-bar/index",
-    "van-popup": "/dist/popup/index"
+    "van-popup": "/dist/popup/index",
+    "van-toast": "/dist/toast/index",
+    "van-notify": "/dist/notify/index"
 
   },
   "sitemapLocation": "sitemap.json"

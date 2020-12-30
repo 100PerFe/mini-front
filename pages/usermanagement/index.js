@@ -1,17 +1,17 @@
-// pages/usermanagement/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"林齐之",
-    status:"administrator",
     show:"",
-    columns:["管理员","记账员","普通成员"]
+    columns:["管理员","记账员","普通成员"],
+    s_UserId:""
   },
   
-  showPopup:function() {
+  showPopup:function(e) {
     this.setData({ show: true });
   },
 
@@ -20,15 +20,88 @@ Page({
   },
   
   chooseToChange:function(e){
-    let changedRank = e.currentTarget.dataset.k;
+    let role = e.currentTarget.dataset.k;
+    let userId1 = app.globalData.userId;
+    let clubId = app.globalData.clubId;
+    let userId2 = this.data.s_UserId;
+    // console.log(userId2)
+    let s_Url = "updateUserClubRole";
+    wx.request({
+      url:app.globalData.url + s_Url,
+      data:{
+        clubId:clubId,
+        role:role,
+        userId1:userId1,
+        userId2:userId2
+      },
+      header:{ "Content-Type": "application/x-www-form-urlencoded"},
+      method:"POST",
+      success:function(res){
+        console.log(res)
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
     
+  },
+
+  catchUserId:function(e){
+    // console.log(e)
+    let userId = e.currentTarget.dataset.h;
+    this.setData({
+      s_UserId:userId
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function (e) {
+    let clubId = app.globalData.clubId;
+    let s_Url = "getClubAllUsers";
+    wx.request({
+      url:app.globalData.url + s_Url,
+      data:{
+        clubId:clubId
+      },
+      method:"GET",
+      success:function(res){
+        // console.log(res.data)
+        var resdata = res.data;
+        if(app.searchDataCallback){
+          app.searchDataCallback(resdata)
+        }
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
+    app.searchDataCallback = res => {
+      let rres = res.data;
+      let clubUserList = [];
+      clubUserList = rres;
+      // console.log(clubUserList)
+      for(let i=0;i<clubUserList.length;i++){
+
+        let role = clubUserList[i].userRole;
+        let roleType = "";
+        if(role == "0"){
+          roleType = "管理员";
+        }
+        else if(role == "1"){
+          roleType = "记账员";
+        }
+        else if(role == "2"){
+          roleType = "普通成员";
+        }
+        clubUserList[i].userRole = roleType;
+      }
+      this.setData({
+        clubDetails:clubUserList
+      })
+    }
   },
 
   /**
@@ -66,17 +139,4 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

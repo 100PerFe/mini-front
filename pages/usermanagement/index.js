@@ -1,4 +1,5 @@
 const app = getApp()
+import Toast from "../../dist/toast/toast";
 
 Page({
 
@@ -19,6 +20,9 @@ Page({
     this.setData({ show: false });
   },
   
+  /*
+  修改成员权限
+  */
   chooseToChange:function(e){
     let role = e.currentTarget.dataset.k;
     let userId1 = app.globalData.userId;
@@ -38,14 +42,33 @@ Page({
       method:"POST",
       success:function(res){
         console.log(res)
+        var resdata = res.data;
+        if(app.searchDataCallback){
+          app.searchDataCallback(resdata)
+        }
       },
       fail:function(res){
         console.log(res)
+        
       }
     })
+    app.searchDataCallback = res => {
+      let resCode = res.code;
+      console.log(resCode)
+      if (resCode == "200") {
+        this.btnSub();
+      }
+      else if(resCode == "400"){
+        this.btnSub1();     
+      }
+    }
+    
     
   },
 
+  /*
+  获取每一项的userId
+  */
   catchUserId:function(e){
     // console.log(e)
     let userId = e.currentTarget.dataset.h;
@@ -53,6 +76,20 @@ Page({
       s_UserId:userId
     })
 
+  },
+
+  /*
+  修改成功提示
+  */
+  btnSub:function() {
+    Toast.success("修改成功");
+  },
+
+  /*
+  修改失败提示
+  */
+  btnSub1:function() {
+    Toast.fail("修改失败");
   },
 
   /**
@@ -125,18 +162,5 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
 
 })

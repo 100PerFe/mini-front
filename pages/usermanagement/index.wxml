@@ -20,5 +20,7 @@
       <van-cell is-link bind:click="chooseToChange" data-k="{{idx}}" >{{item}}</van-cell>
     </view>
   </van-popup>
+  <van-toast id="van-toast" bindtap="btnSub"/>
+  <van-toast id="van-toast" bindtap="btnSub1"/>
 </view>
 

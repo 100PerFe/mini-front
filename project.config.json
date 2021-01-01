@@ -32,14 +32,14 @@
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
-  "appid": "wx842eae779e4ec915",
+  "appid": "wx31f8bb30cd95560e",
   "projectname": "Finance",
   "debugOptions": {
     "hidedInDevtools": []

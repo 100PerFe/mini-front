@@ -1,4 +1,8 @@
 import Dialog from '../../dist/dialog/dialog';
+import Notify from '../../dist/notify/notify';
+
+var app = getApp();
+var serverAddr = app.globalData.url;
 
 // pages/inviteCode/inviteCode.js
 Page({
@@ -7,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "inviteCode": "3c9s94ss"
+    inviteCode: "3c9s94ss"
   },
 
   comfirmNewCode() {
@@ -19,8 +23,22 @@ Page({
       cancelButtonText:"取消更新",
       
     }).then(() => {
-        that.setData({
-          "inviteCode": that.guid().substr(0, 8)
+        wx.request({
+          url: serverAddr+'updateInviteCode',
+          data: {
+            "userId": app.globalData.userId,
+            "clubId": app.globalData.clubId
+          },
+          success(res) {
+            if (res.data.code==200) {
+              that.setData({
+                inviteCode: res.data.data
+              });
+              Notify({ type: 'success', message: "修改成功" });
+            } else {
+              Notify({ type: 'danger', message: res.data.msg });
+            }
+          }
         })
       })
       .catch(() => {

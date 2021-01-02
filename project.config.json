@@ -51,7 +51,10 @@
   "scripts": {},
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+<<<<<<< HEAD
   "appid": "wx842eae779e4ec915",
+=======
+>>>>>>> 10a09ed9993a23597df7457466bc1f254b0941e4
   "condition": {
     "search": {
       "list": []

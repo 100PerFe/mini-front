@@ -12,8 +12,9 @@
 
 #### 已修改及完善
 * 用户管理的页面功能由删除——>修改用户权限（**通过popup实现**）
-* **2020-12-26 将administrator模块融合进personal模块，故只需通过权限等级rank即可判断呈现的功能_（之所以如此，是因为本人不知道怎么通过json跳转到不同页面，鉴于不想在globalData里加rank,于是乎采取该策略）**
-* **对finance、addtag和usermanagement模块添加Toast修改成功/失败提示信息**
+* 2020-12-26 将administrator模块融合进personal模块，故只需通过权限等级rank即可判断呈现的功能_（之所以如此，是因为本人不知道怎么通过json跳转到不同页面，鉴于不想在globalData里加rank,于是乎采取该策略）
+* 对finance、addtag和usermanagement模块添加Toast修改成功/失败提示信息
+* **2021-01-02 将finance的活动tag由input改为picker,picker内的值由/getTagList获取**
 
 #### 全局app.js
 * 设置了一个globalData的全局变量集合，目前包含userId、clubId、url

@@ -1,9 +1,13 @@
 <view class="finace-form-common" >
     <image src='../../image/grid1.png' ></image>
     <form bindsubmit="finance_submit">
-        <view class="finance-formc">
-            <label>活动Tag：</label>
-            <input type="text" focus="{{true}}" name="active_tag" data-type="1" bindinput="active" placeholder="活动Tag"/>
+        <view class="finance-formc1">
+            <label >活动Tag：</label>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{tagArray}}" data-z="{{tagArray}}">
+                <view class="picker">
+                    {{tagArray[index]}}
+                </view>
+            </picker>
         </view>
         <view class="finance-formc">
             <label>{{action}}金额：</label>

@@ -12,7 +12,8 @@ Page({
     active_tag:"",
     active_cost:"",
     reason:"",
-    subCounterType:""
+    subCounterType:"",
+    index:0
 
   },
 
@@ -22,6 +23,23 @@ Page({
   btnSub:function() {
   	Toast.success("录入成功");
   },
+
+  /*
+  获取picker中的tagName
+  */
+  bindPickerChange: function(e) {
+    console.log(e)
+    let index = e.detail.value;
+    let tagArray1 = e.currentTarget.dataset.z;
+    let tagName = tagArray1[index];
+    this.setData({
+      index:index,
+      active_tag:tagName
+    });
+    // console.log(this.data.active_tag)
+    
+  },
+
 
   /*
   接受录入内容
@@ -127,9 +145,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { 
+
+    /*
+    判断出账/入账
+    */
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2];
     var info = prevPage.data;
+    let s_Url = "getTagList";
+    let clubId = app.globalData.clubId;
     if(info.counterType == "createPay"){
       this.setData({
         subCounterType:info.counterType,
@@ -142,7 +166,40 @@ Page({
         action:"入账"
       })
     }
-      
+    
+    /*
+    获取tagNameList中的tagName
+    */
+    wx.request({
+      url:app.globalData.url + s_Url,
+      data:{
+        clubId:clubId
+      },
+      header:{ "Content-Type": "application/x-www-form-urlencoded"},
+      method:"POST",
+      success:function(res){
+        console.log(res.data)
+        var resdata = res.data;
+        if(app.searchDataCallback){
+          app.searchDataCallback(resdata)
+        }   
+      },
+      fail:function(res){
+        console.log(res)
+      }
+    })
+    app.searchDataCallback = res => {
+      let resArray = res.data;
+      var tagNameArray = [];
+      for(let i=0;i<resArray.length;i++){
+        let tagName = resArray[i].tagName;
+        tagNameArray[i] = tagName;
+      }
+      // console.log(tagNameArray)
+      this.setData({
+        tagArray:tagNameArray
+      })
+    }
     
     },
 

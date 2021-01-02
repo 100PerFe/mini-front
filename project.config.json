@@ -39,8 +39,13 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
+<<<<<<< HEAD
+  "appid": "wx842eae779e4ec915",
+  "projectname": "Finance1",
+=======
   "appid": "wx31f8bb30cd95560e",
   "projectname": "Finance",
+>>>>>>> a95afd52b8dc8021c0887de465b9a56922ea9b62
   "debugOptions": {
     "hidedInDevtools": []
   },

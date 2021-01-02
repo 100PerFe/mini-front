@@ -359,6 +359,63 @@ Page({
         })
       }
     });
+    if (that.data.selectedOrg.id) {
+      wx.request({
+        url: serverAddr+'getPayList',
+        data: {
+          "clubId": that.data.selectedOrg.id
+        },
+        success(res) {
+          if (res.data.code == 200) {
+            that.setData({
+              "payList": res.data.data
+            })
+            console.log(res.data.data);
+            
+          } else {
+            Notify({ type: 'danger', message: res.data.msg });
+          }
+        }
+      })
+      wx.request({
+        url: serverAddr+'getIncomeList',
+        data: {
+          "clubId": that.data.selectedOrg.id
+        },
+        success(res) {
+          if (res.data.code == 200) {
+            that.setData({
+              "incomeList": res.data.data
+            })
+          } else {
+            Notify({ type: 'danger', message: res.data.msg });
+          }
+        }
+      });
+      wx.request({
+        url: serverAddr+'getTotalPay',
+        data: {
+          "clubId": that.data.selectedOrg.id
+        },
+        success(res) {
+          that.setData({
+            "totalPay": res.data.data
+          })
+        }
+      })
+      wx.request({
+        url: serverAddr+'getTotalIncome',
+        data: {
+          "clubId": that.data.selectedOrg.id
+        },
+        success(res) {
+          that.setData({
+            "totalIncome": res.data.data
+          })
+        }
+      })
+    }
+    
   },
 
   /**

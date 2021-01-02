@@ -6,7 +6,7 @@
   fit="cover"
   width="8rem"
   height="8rem"
-  src="https://img.yzcdn.cn/vant/cat.jpeg"
+  src="{{userAvatar}}"
   />
 </view>
 

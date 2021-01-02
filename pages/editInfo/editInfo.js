@@ -14,7 +14,8 @@ Page({
     userName: "",
     userSelfDescription: "",
     userEmail: "",
-    emailErrorMsg: ""
+    emailErrorMsg: "",
+    userAvatar: ""
   },
   
 
@@ -88,7 +89,8 @@ Page({
         that.setData({
           userName: user.userName,
           userSelfDescription: user.userSelfDescription,
-          userEmail: user.userEmail
+          userEmail: user.userEmail,
+          userAvatar: user.userAvatar
         })
       }
     })

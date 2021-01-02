@@ -41,35 +41,58 @@ Page({
     "payList": [],
     "incomeList": [],
     "totalIncome": 0,
-    "totalPay": ""
+    "totalPay": 0,
+    "noClub": false,
+    "joinClubTitle": "加入社团"
   },
 
   submitJoinOrg() {
     var that = this;
-    wx.request({
-      url: serverAddr+'joinClubByUserId',
-      data: {
-        userId: userId,
-        inviteCode: inviteCode
-      },
-      success(res) {
-        if (res.data.code==200) {
-          Notify({ type: 'success', message: '加入成功' });
-          let pickerActions = that.data.pickerActions
-          let clubList = that.data.clubList
-          let action = {}
-          action["name"] = res.data.data.clubName
-          pickerActions.push(action)
-          clubList.push(res.data.data)
-          that.setData({
-            "clubList": clubList,
-            "pickerActions": pickerActions
-          })
-        } else {
-          Notify({ type: 'danger', message: res.data.msg });
+    if (inviteCode=="") {
+      Notify({ type: 'danger', message: "请输入邀请码" });
+
+    } else {
+      wx.request({
+        url: serverAddr+'joinClubByUserId',
+        data: {
+          userId: userId,
+          inviteCode: inviteCode
+        },
+        success(res) {
+          if (res.data.code==200) {
+            Notify({ type: 'success', message: '加入成功' });
+            let pickerActions = that.data.pickerActions
+            let clubList = that.data.clubList
+            let action = {}
+            action["name"] = res.data.data.clubName
+            pickerActions.push(action)
+            clubList.push(res.data.data)
+            that.setData({
+              "clubList": clubList,
+              "pickerActions": pickerActions
+            });
+            if (that.data.noClub) {
+              inviteCode=""
+              setTimeout(fun=> {
+                that.setData({
+                  joinOrgShow: false,
+                  inviteCode: "",
+                  noClub: false,
+                  joinClubTitle: "请先加入社团"
+                
+                })
+                that.onLoad();
+                
+              }, 2000);
+            }
+            
+          } else {
+            Notify({ type: 'danger', message: res.data.msg });
+          }
         }
-      }
-    }) 
+      }) 
+    }
+    
   },
 
   getInviteCode(e) {
@@ -247,73 +270,95 @@ Page({
       },
       success(res) {
         let pickerActions = []
-        res.data.data.forEach(element => {
-          let action = {}
-          action["name"] = element.clubName
-          pickerActions.push(action);
-        });
-        that.setData({
-          "pickerActions": pickerActions,
-          "selectedOrg": res.data.data[0],
-          "clubList": res.data.data
-        });
-        app.globalData.clubId=that.data.selectedOrg.id
-        wx.request({
-          url: serverAddr+'getPayList',
-          data: {
-            "clubId": that.data.selectedOrg.id
-          },
-          success(res) {
-            if (res.data.code == 200) {
+        if (res.data.data.length!=0) {
+          res.data.data.forEach(element => {
+            let action = {}
+            action["name"] = element.clubName
+            pickerActions.push(action);
+          });
+          that.setData({
+            "pickerActions": pickerActions,
+            "selectedOrg": res.data.data[0],
+            "clubList": res.data.data,
+            "joinClubTitle": "加入社团"
+          });
+          app.globalData.clubId=that.data.selectedOrg.id
+          wx.request({
+            url: serverAddr+'getPayList',
+            data: {
+              "clubId": that.data.selectedOrg.id
+            },
+            success(res) {
+              if (res.data.code == 200) {
+                that.setData({
+                  "payList": res.data.data
+                })
+                console.log(res.data.data);
+                
+              } else {
+                Notify({ type: 'danger', message: res.data.msg });
+              }
+            }
+          })
+          wx.request({
+            url: serverAddr+'getIncomeList',
+            data: {
+              "clubId": that.data.selectedOrg.id
+            },
+            success(res) {
+              if (res.data.code == 200) {
+                that.setData({
+                  "incomeList": res.data.data
+                })
+              } else {
+                Notify({ type: 'danger', message: res.data.msg });
+              }
+            }
+          });
+          wx.request({
+            url: serverAddr+'getTotalPay',
+            data: {
+              "clubId": that.data.selectedOrg.id
+            },
+            success(res) {
               that.setData({
-                "payList": res.data.data
+                "totalPay": res.data.data
               })
-              console.log(res.data.data);
+            }
+          })
+          wx.request({
+            url: serverAddr+'getTotalIncome',
+            data: {
+              "clubId": that.data.selectedOrg.id
+            },
+            success(res) {
+              that.setData({
+                "totalIncome": res.data.data
+              })
+            }
+          })
+          wx.request({
+            url: serverAddr+'getUserClubAndRole',
+            data: {
+              userId: userId,
+              clubId: that.data.selectedOrg.id
+            },
+            success(res) {
+              console.log(res.data);
               
-            } else {
-              Notify({ type: 'danger', message: res.data.msg });
             }
-          }
-        })
-        wx.request({
-          url: serverAddr+'getIncomeList',
-          data: {
-            "clubId": that.data.selectedOrg.id
-          },
-          success(res) {
-            if (res.data.code == 200) {
-              that.setData({
-                "incomeList": res.data.data
-              })
-            } else {
-              Notify({ type: 'danger', message: res.data.msg });
-            }
-          }
-        });
-        wx.request({
-          url: serverAddr+'getTotalPay',
-          data: {
-            "clubId": that.data.selectedOrg.id
-          },
-          success(res) {
-            that.setData({
-              "totalPay": res.data.data
-            })
-          }
-        })
-        wx.request({
-          url: serverAddr+'getTotalIncome',
-          data: {
-            "clubId": that.data.selectedOrg.id
-          },
-          success(res) {
-            that.setData({
-              "totalIncome": res.data.data
-            })
-          }
-        })
+          })
+        } else {
+          that.setData({
+            noClub: true,
+            joinOrgShow: true,
+            joinClubTitle: "请先加入社团"
+          })
+        }
+        
       }
-    })
+    });
+    
   },
 
   /**

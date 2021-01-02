@@ -1,9 +1,9 @@
 <view class="user_list" > 
-  <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" wx:for="{{clubDetails}}" wx:for-index="idx" data-h="{{item.userId}}" bind:touchend="catchUserId">
+  <van-swipe-cell right-width="{{ 65 }}"  wx:for="{{clubDetails}}" wx:for-index="idx" data-h="{{item.userId}}" bind:touchend="catchUserId">
     <van-cell-group class="user_list_body">
       <van-cell>
           <van-col span="5">
-            <van-image width="70rpx" height="70rpx" fit="cover" src="../../image/grid1.png"  />
+            <van-image width="70rpx" height="70rpx" fit="cover" src="{{item.userAvatar}}"  />
           </van-col>
           <van-col span="9" offset="5" class="user_col">
             <van-row>{{item.userName}}</van-row>

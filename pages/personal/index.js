@@ -10,7 +10,8 @@ Page({
     status:"普通成员",
     club:"日语俱乐部",
     counterType:"",
-    rank:0
+    rank:0,
+    userImg:""
   },
  
   tofinance:function(e){
@@ -74,10 +75,11 @@ Page({
       }
     })
     app.searchDataCallback = res => {
-      console.log(res)
+      // console.log(res.data.userAvatar)
       let name = res.data.userName;
       let rank = res.data.userRole;
       let club = res.data.clubName;
+      let userImg = res.data.userAvatar;
       var status = "";
       if(rank == "0"){
         status = "管理员";
@@ -92,7 +94,8 @@ Page({
         name:name,
         status:status,
         club:club,
-        rank:rank      
+        rank:rank,
+        userImg:userImg
       })
       // console.log(this.data.rank)
 

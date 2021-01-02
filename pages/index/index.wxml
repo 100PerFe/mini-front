@@ -590,10 +590,10 @@
 
 <van-dialog
   use-slot
-  title="通过邀请码加入社团"
+  title="{{joinClubTitle}}"
   width="500rpx"
   show="{{ joinOrgShow }}"
-  show-cancel-button
+  show-cancel-button="{{!noClub}}"
   confirmButtonText="加入"
   confirm-button-open-type="getUserInfo"
   confirm-button-color="#fadb14"
@@ -603,7 +603,7 @@
   z-index="50"
 >
 <view class="join-org-box">
-  <input type="text" placeholder="请输入邀请码" placeholder-style="text-align:center" class="join-org-input" maxlength="10" bindinput="getInviteCode" />
+  <input type="text" placeholder="请输入邀请码" placeholder-style="text-align:center" class="join-org-input" maxlength="10" bindinput="getInviteCode" value="{{inviteCode}}" />
 </view>
 </van-dialog>
 

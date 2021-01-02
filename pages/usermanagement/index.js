@@ -119,7 +119,7 @@ Page({
       let rres = res.data;
       let clubUserList = [];
       clubUserList = rres;
-      // console.log(clubUserList)
+      console.log(clubUserList)
       for(let i=0;i<clubUserList.length;i++){
 
         let role = clubUserList[i].userRole;

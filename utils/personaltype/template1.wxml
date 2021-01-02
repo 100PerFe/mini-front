@@ -2,7 +2,7 @@
 <view class="member_list">
     <view class="list_header">
         <view id="mem_img">
-            <image src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+            <image src="{{userImg}}"/>
         </view>
         <view id="mem_title">
             <text>

@@ -1,6 +1,6 @@
 <import src="/utils/personaltype/template1"></import>
 <view class="admin">
-    <template is="nor_personal" data="{{name,status,club,rank}}"></template>
+    <template is="nor_personal" data="{{name,status,club,rank,userImg}}"></template>
     <view class="admin_func" wx:if="{{rank==0}}">
         <view class="list_body">
             <button class='btn2' hover-class="btnhover" bindtap="tousermanagement">

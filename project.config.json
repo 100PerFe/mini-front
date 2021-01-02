@@ -33,51 +33,44 @@
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": [],
-    "userConfirmedBundleSwitch": false,
-    "minifyWXSS": true
+    "packNpmRelationList": []
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
-  "appid": "wx842eae779e4ec915",
-  "projectname": "Finance1",
+  "appid": "wx31f8bb30cd95560e",
+  "projectname": "Finance",
+  "cloudfunctionTemplateRoot": "",
+  "watchOptions": {
+    "ignore": []
+  },
   "debugOptions": {
     "hidedInDevtools": []
   },
   "scripts": {},
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
     "plugin": {
+      "current": -1,
       "list": []
     },
     "game": {
+      "current": -1,
       "list": []
     },
     "gamePlugin": {
+      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/personal/index",
-          "pathName": "pages/personal/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/administrator/index",
-          "pathName": "pages/administrator/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/usermanagement/index",
-          "pathName": "pages/usermanagement/index",
-          "scene": null
-        }
-      ]
+      "current": -1,
+      "list": []
     }
   }
 }

@@ -16,6 +16,10 @@
     margin-right: 60rpx;
     
 }
+image{
+    width: 100%;
+    height: 300rpx;
+}
 #men_title{
     width: 30%;
     height: 300rpx;

@@ -593,7 +593,8 @@
   title="{{joinClubTitle}}"
   width="500rpx"
   show="{{ joinOrgShow }}"
-  show-cancel-button="{{!noClub}}"
+  show-cancel-button
+  cancel-button-text="{{joinCancelText}}"
   confirmButtonText="加入"
   confirm-button-open-type="getUserInfo"
   confirm-button-color="#fadb14"

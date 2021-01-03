@@ -53,6 +53,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  onShow: function() {
     let userId = app.globalData.userId;
     let clubId = app.globalData.clubId;
     var s_Url = "getUserClubAndRole";
@@ -100,15 +110,6 @@ Page({
       // console.log(this.data.rank)
 
     }
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
+  }
   
 })

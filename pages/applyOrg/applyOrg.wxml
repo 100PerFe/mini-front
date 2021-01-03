@@ -1,3 +1,5 @@
+<van-notify id="van-notify" />
+
 <view class="header">
   创建社团
 </view>
@@ -10,6 +12,7 @@
     placeholder="请输入社团名称"
     bind:click-icon="onClickIcon"
     title-align="right"
+    bind:change="getClubName"
   />
 
   <van-field
@@ -24,10 +27,11 @@
     show-confirm-bar
     show-word-limit
     border="{{ false }}"
+    bind:change="getClubDesc"
   />
 </van-cell-group>
 <view class="footer">
-  <van-button color="linear-gradient(to right, #EDE574, #E1F5C4)" custom-style="color: #3f4470;width:85vw">
+  <van-button color="linear-gradient(to right, #EDE574, #E1F5C4)" custom-style="color: #3f4470;width:85vw" bind:click="submitClubApply">
     创建社团
   </van-button>
 </view>

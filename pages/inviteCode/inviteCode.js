@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inviteCode: "3c9s94ss"
+    inviteCode: ""
   },
 
   comfirmNewCode() {
@@ -58,7 +58,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: serverAddr+'getInviteCode',
+      data: {
+        userId: app.globalData.userId,
+        clubId: app.globalData.clubId
+      },
+      success(res) {
+        that.setData({
+          inviteCode: res.data.data
+        })
+      }
+    })
   },
 
   /**

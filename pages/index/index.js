@@ -15,9 +15,6 @@ Page({
     "selectedOrg": {},
     "pickerShow": false,
     "pickerActions": [
-      {"name": "社团A"},
-      {"name": "社团B"},
-      {"name": "社团C"},
     ],
     "orgOptionShow": false,
     "joinOrgShow": false,
@@ -43,7 +40,8 @@ Page({
     "totalIncome": 0,
     "totalPay": 0,
     "noClub": false,
-    "joinClubTitle": "加入社团"
+    "joinClubTitle": "加入社团",
+    "joinCancelText": "取消"
   },
 
   submitJoinOrg() {
@@ -67,6 +65,13 @@ Page({
             action["name"] = res.data.data.clubName
             pickerActions.push(action)
             clubList.push(res.data.data)
+            if (clubList.length==1) {
+              that.setData({
+                "clubList": clubList,
+                "pickerActions": pickerActions,
+                "selectedOrg": clubList[0]
+              });
+            }
             that.setData({
               "clubList": clubList,
               "pickerActions": pickerActions
@@ -247,6 +252,11 @@ Page({
   },
   
   joinOrgClose() {
+    if (this.data.noClub) {
+      wx.navigateTo({
+        url: '/pages/applyOrg/applyOrg',
+      });
+    }
     this.setData({
       "joinOrgShow": false
     })
@@ -266,7 +276,7 @@ Page({
     wx.request({
       url: serverAddr+'getUserClubs',
       data: {
-        "userId": userId
+        "userId": wx.getStorageSync('userId')
       },
       success(res) {
         let pickerActions = []
@@ -352,7 +362,8 @@ Page({
           that.setData({
             noClub: true,
             joinOrgShow: true,
-            joinClubTitle: "请先加入社团"
+            joinClubTitle: "请先加入社团或创建社团",
+            joinCancelText: "创建社团"
           })
         }
         
@@ -382,10 +393,19 @@ Page({
         action["name"] = res.data.clubName
         pickerActions.push(action)
         clubList.push(res.data)
-        that.setData({
-          "pickerActions": pickerActions,
-          "clubList": clubList
-        });
+        if (clubList.length==1) {
+          that.setData({
+            "pickerActions": pickerActions,
+            "clubList": clubList,
+            "selectedOrg": clubList[0]
+          })
+        } else {
+          that.setData({
+            "pickerActions": pickerActions,
+            "clubList": clubList
+          });
+        }
+
         // res.data.forEach(element => {
         //   let action = {}
         //   action["name"] = element.clubName

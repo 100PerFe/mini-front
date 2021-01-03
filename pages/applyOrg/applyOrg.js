@@ -1,3 +1,9 @@
+import Notify from '../../dist/notify/notify';
+
+var app = getApp();
+var serverAddr = app.globalData.url
+var userId = app.globalData.userId
+
 // pages/applyOrg/applyOrg.js
 Page({
 
@@ -5,7 +11,48 @@ Page({
    * 页面的初始数据
    */
   data: {
+    clubName: null,
+    clubDesc: null
+  },
 
+  getClubName(event) {
+    
+    this.setData({
+      clubName: event.detail
+    })
+  },
+
+  getClubDesc(event) {
+    this.setData({
+      clubDesc: event.detail
+    })
+  },
+
+  submitClubApply() {
+    var that = this;
+    wx.request({
+      url: serverAddr+'createClub',
+      data: {
+        "clubDescription": that.data.clubDesc,
+        "clubName": that.data.clubName,
+        "userId": wx.getStorageSync('userId')
+      },
+      success(res) {
+        if (res.data.code==200) {
+          Notify({ type: 'success', message: '创建成功' });
+          wx.setStorage({
+            data: res.data.data,
+            key: 'updateClubList',
+          })
+        } else {
+          Notify({ type: 'danger', message: res.data.msg });
+        }
+      },
+      fail(res) {
+        console.log(res);
+        
+      }
+    })
   },
 
   /**

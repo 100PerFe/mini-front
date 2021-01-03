@@ -25,7 +25,7 @@ App({
                           success: res => {
                             console.log(res)
                             that.globalData.temp.userNick = res.userInfo.nickName,
-                              that.globalData.temp.userAvatar = res.userInfo.avatarUrl
+                            that.globalData.temp.userAvatar = res.userInfo.avatarUrl
                           }
                         })
                        //延迟1s，在userNick，userAvatar赋值后获取值
@@ -44,22 +44,25 @@ App({
                             success:res=>{
                               console.log(res.data.data)
                               //注册成功
-                              wx.setStorage({
-                                key:"userId",
-                                data:res.data.data.id
+                              wx.setStorageSync("userId", res.data.data.id);
+                              that.globalData.userId=res.data.data.id
+                              wx.reLaunch({
+                                url: '/pages/index/index',
                               })
                             }
                           })
                         }, 1000) 
                       }else{
                         //用户已注册，将返回的res.data.data放进缓存中
-                        wx.setStorage({
-                          key:"userId",
-                          data:res.data.data.id
+                        wx.setStorageSync("userId", res.data.data.id
+                        );
+                        that.globalData.userId=res.data.data.id
+                        wx.reLaunch({
+                          url: '/pages/index/index',
                         })
                       }
                     }
-                  })
+                  });
                 }
               })
             } else if (res.cancel) {
